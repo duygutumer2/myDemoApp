@@ -1,0 +1,1 @@
+[![Build Status](https://app.travis-ci.com/duygutumer2/myDemoApp.svg?branch=master)](https://app.travis-ci.com/duygutumer2/myDemoApp)
