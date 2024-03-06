@@ -1,1 +1,1 @@
-[![Build Status](https://app.travis-ci.com/duygutumer2/myDemoApp.svg?branch=master)](https://app.travis-ci.com/duygutumer2/myDemoApp)
+[![Build Status](https://app.travis-ci.com/duygutumer2/myDemoApp.svg?token=rvWfQC6PNfo3Jyi7mzB2&branch=master)](https://app.travis-ci.com/duygutumer2/myDemoApp)
