@@ -15,6 +15,8 @@ import spark.template.mustache.MustacheTemplateEngine;
  */
 
 public class App {
+
+   
     public static int isArrayPalindrome(ArrayList<Integer> array, ArrayList<String> words1, ArrayList<String> words2,boolean process) {
             HashMap<Integer,Integer> map1 = new HashMap<>();
             HashMap<Integer,Integer> map2 = new HashMap<>();
@@ -74,14 +76,7 @@ public class App {
         else return -1;
 
     }
-    public static boolean search(ArrayList<Integer> array, int e) {
-        System.out.println("inside search");
-        if (array == null) return false;
-        for (int elt : array) {
-            if (elt == e) return true;
-        }
-        return false;
-    }
+
 
 
     public static boolean isPalindrome(String str){
@@ -105,15 +100,17 @@ public class App {
             java.util.Scanner sc1 = new java.util.Scanner(input1);
             sc1.useDelimiter("[;\r\n]+");
             java.util.ArrayList<Integer> inputList = new java.util.ArrayList<>();
-            while (sc1.hasNext())
-            {
-                int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
+
+            while (sc1.hasNext()) {
+                int value = Integer.parseInt(sc1.next().replaceAll("\\s", ""));
                 inputList.add(value);
             }
-            System.out.println(inputList);
-            String input2 = req.queryParams("input2").replaceAll("\\s","");
+
+            String input2 = req.queryParams("input2").replaceAll("\\s", "");
             int input2AsInt = Integer.parseInt(input2);
-            boolean result = App.search(inputList, input2AsInt);
+
+            int result = isArrayPalindrome(inputList, new ArrayList<>(), new ArrayList<>(), true);
+
             Map map = new HashMap();
             map.put("result", result);
             return new ModelAndView(map, "compute.mustache");
