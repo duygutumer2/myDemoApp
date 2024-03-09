@@ -113,6 +113,7 @@ public class App {
 
             Map<String, Object> map = new HashMap<>();
             map.put("result", result);
+            map.put("inputList", inputList);
             return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
