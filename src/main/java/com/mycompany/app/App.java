@@ -16,7 +16,7 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App {
 
-   
+
     public static int isArrayPalindrome(ArrayList<Integer> array, ArrayList<String> words1, ArrayList<String> words2,boolean process) {
             HashMap<Integer,Integer> map1 = new HashMap<>();
             HashMap<Integer,Integer> map2 = new HashMap<>();
