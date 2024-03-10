@@ -3,10 +3,9 @@ package com.mycompany.app;
 import static spark.Spark.get;
 import static spark.Spark.port;
 import static spark.Spark.post;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+
+import java.util.*;
+
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
 
@@ -100,20 +99,41 @@ public class App {
             java.util.Scanner sc1 = new java.util.Scanner(input1);
             sc1.useDelimiter("[;\r\n]+");
             java.util.ArrayList<Integer> inputList = new java.util.ArrayList<>();
+            java.util.ArrayList<String> wordsList1 = new java.util.ArrayList<>(); // Bu liste kullanıcıdan alınacak.
+            java.util.ArrayList<String> wordsList2 = new java.util.ArrayList<>(); // Bu liste kullanıcıdan alınacak.
 
             while (sc1.hasNext()) {
                 int value = Integer.parseInt(sc1.next().replaceAll("\\s", ""));
                 inputList.add(value);
             }
 
-            String input2 = req.queryParams("input2").replaceAll("\\s", "");
-            int input2AsInt = Integer.parseInt(input2);
+            String input2 = req.queryParams("input2");
+            java.util.Scanner sc2 = new java.util.Scanner(input2);
+            sc2.useDelimiter("[;\r\n]+");
+            while (sc2.hasNext()) {
+                String value = sc2.next().replaceAll("\\s","");
+                wordsList1.add(value);
+            }
+            String input3 = req.queryParams("input3");
+            java.util.Scanner sc3 = new java.util.Scanner(input3);
+            sc3.useDelimiter("[;\r\n]+");
+            while (sc3.hasNext()) {
+                String value = sc3.next().replaceAll("\\s","");
+                wordsList2.add(value);
+            }
 
-            int result = isArrayPalindrome(inputList, new ArrayList<>(), new ArrayList<>(), true);
+            String input4 = req.queryParams("input4");
+            java.util.Scanner sc4 = new java.util.Scanner(input4);
+
+            boolean agree = "true".equals(input4);
+            int result = isArrayPalindrome(inputList, wordsList1, wordsList2, agree);
 
             Map<String, Object> map = new HashMap<>();
             map.put("result", result);
             map.put("inputList", inputList);
+            map.put("wordsList1",wordsList1);
+            map.put("wordsList2",wordsList2);
+            map.put("process",agree);
             return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
