@@ -55,8 +55,7 @@ public class App {
 
 
             }
-            System.out.println(map1);
-            System.out.println(map2);
+
             int max1 =0;
             int max2 = 0;
             for(Integer i : map1.keySet()){
